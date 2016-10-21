@@ -1,0 +1,11 @@
+﻿
+    <app-shell></app-shell>
+    <script src="~/lib/npmlibs/core-js/client/shim.js"></script>
+    <script src="~/lib/npmlibs/zone.js/dist/zone.js"></script>
+    <script src="~/lib/npmlibs/reflect-metadata/Reflect.js"></script>
+    <script src="~/lib/npmlibs/systemjs/system.src.js"></script>
+
+    <script src="~/appScripts/startup.js"></script>
+    <script>
+        System.import('app').then(null, console.error.bind(console));
+    </script>
