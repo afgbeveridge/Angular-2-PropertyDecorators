@@ -1,24 +1,24 @@
 ﻿import { DelegatedPropertyAction } from './delegatedPropertyAction.interface';
 import { AccessorOptions } from './accessorOptions.interface';
-import { LocalStorageDelegatedPropertyAction } from './localStorageAction.class';
+import { SessionStorageDelegatedPropertyAction } from './sessionStorageAction.class';
 import { AccessHandler } from './decorator.common';
 
-export function LocalStorage(optionsOrPrefix: string | AccessorOptions) {
+export function SessionStorage(optionsOrPrefix: string | AccessorOptions) {
     function ensureConfigured(opts: AccessorOptions): AccessorOptions {
         opts.preconditionsAssessor =
             opts.preconditionsAssessor ||
-            (() => window.localStorage && true);
+            (() => window.sessionStorage && true);
         opts.factory =
             opts.factory ||
-            ((p, c) => new LocalStorageDelegatedPropertyAction(p, c));
+            ((p, c) => new SessionStorageDelegatedPropertyAction(p, c));
         return opts;
     }
     return AccessHandler(
         ensureConfigured(
             typeof optionsOrPrefix === "string" ?
-            <AccessorOptions>{
-                storagePrefix: optionsOrPrefix,
-                createToJsonOverride: true
+                <AccessorOptions>{
+                    storagePrefix: optionsOrPrefix,
+                    createToJsonOverride: true
                 }
                 : optionsOrPrefix
         ));
