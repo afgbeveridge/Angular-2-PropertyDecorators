@@ -4,4 +4,5 @@ export interface DelegatedPropertyAction {
     storageKey: string;
     get(): any;
     set(newValue: any): any;
+    preConditionsSatisfied(): boolean;
 }

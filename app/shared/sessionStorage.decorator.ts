@@ -5,9 +5,6 @@ import { AccessHandler } from './decorator.common';
 
 export function SessionStorage(optionsOrPrefix: string | AccessorOptions) {
     function ensureConfigured(opts: AccessorOptions): AccessorOptions {
-        opts.preconditionsAssessor =
-            opts.preconditionsAssessor ||
-            (() => window.sessionStorage && true);
         opts.factory =
             opts.factory ||
             ((p, c) => new SessionStorageDelegatedPropertyAction(p, c));

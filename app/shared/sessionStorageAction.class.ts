@@ -12,6 +12,10 @@ export class SessionStorageDelegatedPropertyAction extends BaseDelegatedProperty
         super.set(newValue);
     }
 
+    preConditionsSatisfied(): boolean {
+        return window.sessionStorage && true;
+    }
+
     private read() {
         return sessionStorage.getItem(this.storageKey) || null;
     }

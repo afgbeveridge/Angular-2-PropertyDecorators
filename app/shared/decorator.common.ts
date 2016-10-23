@@ -8,15 +8,16 @@ export function PropertyInterceptor(options: AccessorOptions) {
 export function AccessHandler(options: AccessorOptions) {
     return (target: Object, key?: string): void => {
 
-        function makeKey(key: string) {
+        function makeKey(key: string) : string {
             return (options.storagePrefix || '') + '/' + key;
         }
 
-        if (!options.preconditionsAssessor || options.preconditionsAssessor()) {
+        let privateName = '$__' + key, storeKey = makeKey(key);
+        let handler = options.factory(key, storeKey);
 
-            let privateName = '$__' + key, storeKey = makeKey(key);
+        if (handler.preConditionsSatisfied()) {
 
-            target[privateName] = options.factory(key, storeKey);
+            target[privateName] = handler;
 
             Object.defineProperty(target, key, {
                 get: function () {

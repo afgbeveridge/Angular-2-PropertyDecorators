@@ -22,16 +22,15 @@
     "@angular/platform-browser-dynamic": "~2.0.1",
     "@angular/router": "~3.0.1",
     "@angular/upgrade": "~2.0.1",
-
     "angular-in-memory-web-api": "~0.1.1",
+    "angular2-uuid": "^1.1.0",
+    "angular2-websocket": "^0.8.1",
     "bootstrap": "^3.3.7",
-    "systemjs": "0.19.39",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.25",
-    "angular2-websocket": "^0.8.1"
-
+    "systemjs": "0.19.39",
+    "zone.js": "^0.6.25"
   },
   "scripts": {
     "typings": "typings",

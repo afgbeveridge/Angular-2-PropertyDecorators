@@ -5,9 +5,6 @@ import { AccessHandler } from './decorator.common';
 
 export function LocalStorage(optionsOrPrefix: string | AccessorOptions) {
     function ensureConfigured(opts: AccessorOptions): AccessorOptions {
-        opts.preconditionsAssessor =
-            opts.preconditionsAssessor ||
-            (() => window.localStorage && true);
         opts.factory =
             opts.factory ||
             ((p, c) => new LocalStorageDelegatedPropertyAction(p, c));

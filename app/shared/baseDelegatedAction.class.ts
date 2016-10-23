@@ -19,4 +19,8 @@ export class BaseDelegatedPropertyAction implements DelegatedPropertyAction {
         this.val = newValue;
     }
 
+    preConditionsSatisfied(): boolean {
+        return true;
+    }
+
 }

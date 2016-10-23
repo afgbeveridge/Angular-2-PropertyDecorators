@@ -12,6 +12,10 @@ export class LocalStorageDelegatedPropertyAction extends BaseDelegatedPropertyAc
         super.set(newValue);
     }
 
+    preConditionsSatisfied(): boolean {
+        return window.localStorage && true;
+    }
+
     private read() {
         return localStorage.getItem(this.storageKey) || null;
     }
