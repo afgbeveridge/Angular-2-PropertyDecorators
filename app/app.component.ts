@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { LocalStorage } from './shared/localStorage.decorator';
-import { SessionStorage } from './shared/sessionStorage.decorator';
+import { LocalStorage, SessionStorage } from 'angular2-extensible-decorators/components';
 
 @Component({
     selector: 'app-shell',

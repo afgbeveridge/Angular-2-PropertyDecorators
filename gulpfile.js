@@ -51,6 +51,9 @@ gulp.task("lib", function () {
 
     gulp.src(paths.npmSrc + '/angular2-websocket/**', { base: paths.npmSrc + '/angular2-websocket/' })
          .pipe(gulp.dest(paths.npmLibs + '/angular2-websocket/'));
+
+    gulp.src(paths.npmSrc + '/angular2-extensible-decorators/**', { base: paths.npmSrc + '/angular2-extensible-decorators/' })
+         .pipe(gulp.dest(paths.npmLibs + '/angular2-extensible-decorators/'));
 });
 
 gulp.task('copy', function () {
